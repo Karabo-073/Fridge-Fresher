@@ -2,160 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fridge Fresher</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #f4f6f8; color: #333; margin: 0; padding: 0; }
-    header { background: #4caf50; color: white; padding: 1rem; text-align: center; }
-    main { padding: 2rem; max-width: 800px; margin: auto; }
-    h2 { border-bottom: 2px solid #4caf50; padding-bottom: 0.5rem; }
-    table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; }
-    th, td { padding: 0.75rem; border: 1px solid #ddd; text-align: left; }
-    th { background-color: #e8f5e9; }
-    .status-expiring { color: #d84315; font-weight: bold; }
-    .status-fresh { color: #388e3c; font-weight: bold; }
-    .status-expired { color: #b71c1c; font-weight: bold; }
+    /* Your CSS styles here */
   </style>
 </head>
 <body>
-  <header>
-    <h1>Fridge Fresher</h1>
-    <p>Track what's fresh and reduce waste</p>
-  </header>
-  <main>
-    <h2>Inventory</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Item</th>
-          <th>Quantity</th>
-          <th>Expiry Date</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Tomatoes</td>
-          <td>3</td>
-          <td>2025-04-25</td>
-          <td class="status-expiring">Expiring Soon</td>
-        </tr>
-        <tr>
-          <td>Cheese</td>
-          <td>1 block</td>
-          <td>2025-04-28</td>
-          <td class="status-fresh">Fresh</td>
-        </tr>
-        <tr>
-          <td>Spinach</td>
-          <td>1 bag</td>
-          <td>2025-04-23</td>
-          <td class="status-expired">Expired</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h2>Recipes</h2>
-    <ul>
-      <li><strong>Tomato Pasta:</strong> Tomatoes, Cheese, Pasta - 15 mins</li>
-      <li><strong>Spinach Omelet:</strong> Spinach, Eggs, Cheese - 10 mins</li>
-    </ul>
-
-    <h2>Grocery List</h2>
-    <ul>
-      <li>1 pack Pasta (for Tomato Pasta)</li>
-      <li>6 Eggs (for Spinach Omelet)</li>
-    </ul>
-  </main>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fridge Fresher</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 2rem;
-      background: #f0fdf4;
-      color: #333;
-    }
-    h1 {
-      text-align: center;
-      color: #2e7d32;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 2rem;
-    }
-    th, td {
-      padding: 1rem;
-      border: 1px solid #ccc;
-      text-align: center;
-    }
-    th {
-      background: #c8e6c9;
-    }
-    .expired {
-      color: red;
-    }
-    .soon {
-      color: orange;
-    }
-    .fresh {
-      color: green;
-    }
-  </style>
-</head>
-<body>
-
-  <h1>🥦 Fridge Fresher</h1>
-
-  <table>
+  <h1>Fridge Inventory</h1>
+  <table id="inventoryTable">
     <thead>
       <tr>
         <th>Item</th>
         <th>Quantity</th>
         <th>Expiry Date</th>
         <th>Status</th>
+        <th>Buy</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td colspan="4">Loading...</td></tr>
+      <!-- Data will be inserted here -->
     </tbody>
   </table>
-
   <script>
-    fetch('https://api.sheety.co/feeb616a50f3fbfd6cfa527ee546424d/fridgeFresher/inventory')
-      .then(response => response.json())
+    function getStatus(expiryDate) {
+      const today = new Date();
+      const expiry = new Date(expiryDate);
+      const timeDiff = expiry - today;
+      const days = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+      if (days < 0) return { label: "Expired", class: "expired" };
+      if (days <= 3) return { label: `${days} day(s) left`, class: "expiring" };
+      return { label: `${days} day(s) left`, class: "fresh" };
+    }
+
+    fetch("https://api.sheety.co/feeb616a50f3fbfd6cfa527ee546424d/fridgeFresher/inventory")
+      .then(res => res.json())
       .then(data => {
-        const tableBody = document.querySelector("tbody");
+        const tableBody = document.querySelector("#inventoryTable tbody");
         tableBody.innerHTML = "";
+
         data.inventory.forEach(item => {
           const status = getStatus(item.expiryDate);
+          const searchQuery = encodeURIComponent(item.itemName + " grocery");
+          const amazonLink = `https://www.amazon.com/s?k=${searchQuery}`;
+
           const row = `
             <tr>
               <td>${item.itemName}</td>
               <td>${item.quantity}</td>
               <td>${item.expiryDate}</td>
               <td class="${status.class}">${status.label}</td>
+              <td><a href="${amazonLink}" target="_blank" style="color: #0b5ed7;">Buy Now</a></td>
             </tr>`;
           tableBody.insertAdjacentHTML("beforeend", row);
         });
+      })
+      .catch(error => {
+        console.error("Error fetching data:", error);
       });
-
-    function getStatus(dateStr) {
-      const today = new Date();
-      const expiry = new Date(dateStr);
-      const daysLeft = Math.floor((expiry - today) / (1000 * 60 * 60 * 24));
-      if (daysLeft < 0) return { label: "Expired", class: "expired" };
-      if (daysLeft <= 3) return { label: "Expiring Soon", class: "soon" };
-      return { label: "Fresh", class: "fresh" };
-    }
   </script>
-
 </body>
 </html>
+
+          
+      
+
+    
