@@ -69,3 +69,93 @@
   </main>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fridge Fresher</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background: #f0fdf4;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #2e7d32;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+    th, td {
+      padding: 1rem;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    th {
+      background: #c8e6c9;
+    }
+    .expired {
+      color: red;
+    }
+    .soon {
+      color: orange;
+    }
+    .fresh {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🥦 Fridge Fresher</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Expiry Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan="4">Loading...</td></tr>
+    </tbody>
+  </table>
+
+  <script>
+    fetch('https://api.sheety.co/feeb616a50f3fbfd6cfa527ee546424d/fridgeFresher/inventory')
+      .then(response => response.json())
+      .then(data => {
+        const tableBody = document.querySelector("tbody");
+        tableBody.innerHTML = "";
+        data.inventory.forEach(item => {
+          const status = getStatus(item.expiryDate);
+          const row = `
+            <tr>
+              <td>${item.itemName}</td>
+              <td>${item.quantity}</td>
+              <td>${item.expiryDate}</td>
+              <td class="${status.class}">${status.label}</td>
+            </tr>`;
+          tableBody.insertAdjacentHTML("beforeend", row);
+        });
+      });
+
+    function getStatus(dateStr) {
+      const today = new Date();
+      const expiry = new Date(dateStr);
+      const daysLeft = Math.floor((expiry - today) / (1000 * 60 * 60 * 24));
+      if (daysLeft < 0) return { label: "Expired", class: "expired" };
+      if (daysLeft <= 3) return { label: "Expiring Soon", class: "soon" };
+      return { label: "Fresh", class: "fresh" };
+    }
+  </script>
+
+</body>
+</html>
