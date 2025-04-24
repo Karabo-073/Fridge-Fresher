@@ -1,0 +1,1 @@
+Fridge Fresher is a web-based application that helps users manage their fridge inventory, track food expiry dates, suggest recipes based on available ingredients, and provide notifications before food expires. It also integrates with barcode scanning to easily log items into the inventory.
