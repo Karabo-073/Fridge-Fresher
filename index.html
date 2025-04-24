@@ -4,8 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fridge Fresher</title>
+  
   <!-- Bootstrap CDN for responsive design -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/quagga@0.12.1/dist/quagga.min.js"></script>
+
   <style>
     .expired { color: red; }
     .expiring { color: orange; }
@@ -67,13 +70,68 @@
         <tbody></tbody>
       </table>
     </div>
+
+    <!-- Barcode Scanner -->
+    <h3>Scan Barcode</h3>
+    <div id="barcode-scanner" style="width: 300px; height: 300px;"></div>
+
+    <!-- Recipe Suggestions -->
+    <h3>Suggested Recipes</h3>
+    <ul id="recipeList"></ul>
   </div>
 
-  <!-- Bootstrap JS and Popper.js for interactive components (like dropdowns, modals, etc.) -->
+  <!-- Bootstrap JS and Popper.js for interactive components -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 
   <script>
+    // Barcode Scanner functionality
+    function startScanner() {
+      Quagga.init({
+        inputStream: {
+          name: "Live",
+          type: "LiveStream",
+          target: document.querySelector('#barcode-scanner'),
+          constraints: { facingMode: "environment" }
+        },
+        decoder: { readers: ["code_128_reader", "ean_reader", "ean_8_reader"] }
+      }, function(err) {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        Quagga.start();
+      });
+
+      Quagga.onDetected(function(result) {
+        alert('Barcode detected: ' + result.codeResult.code);
+        // Log the item to your API
+      });
+    }
+
+    startScanner(); // Start scanning
+
+    // Recipe Suggestions functionality
+    function suggestRecipes(ingredients) {
+      const apiKey = "YOUR_API_KEY"; // Replace with your actual API key
+      const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${apiKey}`;
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          const recipeList = document.getElementById("recipeList");
+          recipeList.innerHTML = '';
+          data.forEach(recipe => {
+            const li = document.createElement("li");
+            li.innerHTML = `<a href="https://spoonacular.com/recipes/${recipe.title.replace(/\s/g, '-')}-${recipe.id}" target="_blank">${recipe.title}</a>`;
+            recipeList.appendChild(li);
+          });
+        })
+        .catch(err => console.error("Error fetching recipes:", err));
+    }
+
+    suggestRecipes("tomato, cheese, onion"); // Example ingredients
+
+    // Expiry Status and Notifications
     function getStatus(expiryDate) {
       const today = new Date();
       const expiry = new Date(expiryDate);
@@ -85,6 +143,23 @@
       return { label: `${days} day(s) left`, class: "fresh" };
     }
 
+    function notifyBeforeExpiry(itemName, expiryDate) {
+      const today = new Date();
+      const expiry = new Date(expiryDate);
+      const timeDiff = expiry - today;
+      const daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+      if (daysLeft <= 3) {
+        new Notification(`Food Expiry Alert: ${itemName}`, {
+          body: `Your ${itemName} expires in ${daysLeft} day(s)!`,
+        });
+      }
+    }
+
+    // Test Notification
+    notifyBeforeExpiry("Milk", "2025-04-30");
+
+    // Inventory Table Functions
     let fullInventory = [];
 
     function renderTable(inventory) {
@@ -158,97 +233,7 @@
 </body>
 </html>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fridge Fresher</title>
-  <style>
-    /* Your existing styles here */
-  </style>
-</head>
-<body>
-  <h1>Fridge Inventory</h1>
 
-  <!-- Barcode Scanner -->
-  <h3>Scan Barcode</h3>
-  <div id="barcode-scanner" style="width: 300px; height: 300px;"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/quagga@0.12.1/dist/quagga.min.js"></script>
-  <script>
-    function startScanner() {
-      Quagga.init({
-        inputStream: {
-          name: "Live",
-          type: "LiveStream",
-          target: document.querySelector('#barcode-scanner'),
-          constraints: { facingMode: "environment" }
-        },
-        decoder: { readers: ["code_128_reader", "ean_reader", "ean_8_reader"] }
-      }, function(err) {
-        if (err) {
-          console.log(err);
-          return;
-        }
-        Quagga.start();
-      });
-
-      Quagga.onDetected(function(result) {
-        alert('Barcode detected: ' + result.codeResult.code);
-        // Log the item to your API
-      });
-    }
-
-    startScanner(); // Start scanning
-  </script>
-
-  <!-- Recipe Suggestions -->
-  <h3>Suggested Recipes</h3>
-  <ul id="recipeList"></ul>
-  <script>
-    function suggestRecipes(ingredients) {
-      const apiKey = "YOUR_API_KEY";
-      const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${apiKey}`;
-      fetch(url)
-        .then(res => res.json())
-        .then(data => {
-          const recipeList = document.getElementById("recipeList");
-          recipeList.innerHTML = '';
-          data.forEach(recipe => {
-            const li = document.createElement("li");
-            li.innerHTML = `<a href="https://spoonacular.com/recipes/${recipe.title.replace(/\s/g, '-')}-${recipe.id}" target="_blank">${recipe.title}</a>`;
-            recipeList.appendChild(li);
-          });
-        })
-        .catch(err => console.error("Error fetching recipes:", err));
-    }
-
-    suggestRecipes("tomato, cheese, onion");
-  </script>
-
-  <!-- Notification on Expiry -->
-  <script>
-    function notifyBeforeExpiry(itemName, expiryDate) {
-      const today = new Date();
-      const expiry = new Date(expiryDate);
-      const timeDiff = expiry - today;
-      const daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24));
-
-      if (daysLeft <= 3) {
-        new Notification(`Food Expiry Alert: ${itemName}`, {
-          body: `Your ${itemName} expires in ${daysLeft} day(s)!`,
-        });
-      }
-    }
-    // Test Notification
-    notifyBeforeExpiry("Milk", "2025-04-30");
-  </script>
-</body>
-</html>
-
--
-
-      
-
-    
+   
+     
