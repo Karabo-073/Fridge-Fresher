@@ -1,241 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fridge Fresher</title>
-
-  <!-- Bootstrap CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/quagga@0.12.1/dist/quagga.min.js"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fridge Fresher - Smart Food Management</title>
   <style>
-    .expired { color: red; }
-    .expiring { color: orange; }
-    .fresh { color: green; }
-    body { padding: 20px; }
-    table { width: 100%; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7fb;
+    }
+    header {
+      background-color: #1a73e8;
+      color: white;
+      text-align: center;
+      padding: 40px 0;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+      color: #00C853; /* Green */
+    }
+    .hero {
+      text-align: center;
+      margin: 40px 0;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .hero h2 {
+      font-size: 2em;
+      color: #1a73e8;
+    }
+    .hero p {
+      font-size: 1.2em;
+      color: #555;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      padding: 0 20px;
+      margin-bottom: 40px;
+    }
+    .feature {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .feature h3 {
+      color: #1a73e8;
+      font-size: 1.5em;
+    }
+    .feature p {
+      color: #555;
+      font-size: 1em;
+    }
+    .cta {
+      text-align: center;
+      margin: 40px 0;
+    }
+    .cta button {
+      background-color: #00C853;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .cta button:hover {
+      background-color: #1a73e8;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1 class="mb-4">🥶 Fridge Fresher Inventory</h1>
 
-    <!-- Add Item Form -->
-    <h3>Add New Item</h3>
-    <form id="addItemForm" class="row g-3 mb-4">
-      <div class="col-md-4">
-        <input type="text" class="form-control" id="itemName" placeholder="Item Name" required />
-      </div>
-      <div class="col-md-2">
-        <input type="number" class="form-control" id="quantity" placeholder="Quantity" required />
-      </div>
-      <div class="col-md-3">
-        <input type="date" class="form-control" id="expiryDate" required />
-      </div>
-      <div class="col-md-3">
-        <button type="submit" class="btn btn-success w-100">➕ Add Item</button>
-      </div>
-    </form>
-    <p id="formMessage"></p>
+  <header>
+    <h1>Fridge Fresher</h1>
+  </header>
 
-    <!-- Filter Buttons -->
-    <h4>Filter</h4>
-    <div class="btn-group mb-4" role="group">
-      <button class="btn btn-outline-primary" onclick="filterItems('all')">All</button>
-      <button class="btn btn-outline-warning" onclick="filterItems('expiring')">Expiring</button>
-      <button class="btn btn-outline-danger" onclick="filterItems('expired')">Expired</button>
-    </div>
-
-    <!-- Totals -->
-    <div id="stats" class="mb-4">
-      <h4>Inventory Summary</h4>
-      <p>Total Items: <span id="totalCount">0</span></p>
-      <p>Expiring Soon (≤3 days): <span id="expiringCount">0</span></p>
-      <p>Expired: <span id="expiredCount">0</span></p>
-    </div>
-
-    <!-- Inventory Table -->
-    <div class="table-responsive">
-      <table class="table table-bordered" id="inventoryTable">
-        <thead class="table-light">
-          <tr>
-            <th>Item</th>
-            <th>Quantity</th>
-            <th>Expiry Date</th>
-            <th>Status</th>
-            <th>Buy</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </div>
-
-    <!-- Barcode Scanner -->
-    <h3>Scan Barcode</h3>
-    <div id="barcode-scanner" style="width: 300px; height: 300px;"></div>
-
-    <!-- Recipe Suggestions -->
-    <h3>Suggested Recipes</h3>
-    <input type="text" id="ingredientInput" placeholder="Enter ingredients (comma-separated)" class="form-control mb-2">
-    <button class="btn btn-info mb-4" onclick="searchRecipes()">Search Recipes</button>
-    <ul id="recipeList"></ul>
+  <div class="hero">
+    <h2>Your fridge, finally organized.</h2>
+    <p>Save Food. Save Money. Eat Smarter. Track what’s in your fridge, get reminders, and cook smarter!</p>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+  <div class="features">
+    <div class="feature">
+      <h3>🔐 Email-Based Login</h3>
+      <p>Security first — sign in using your email address to create a personalized and secure experience. Sync data across devices and homes.</p>
+    </div>
+    <div class="feature">
+      <h3>🏠 Unique & Stylish Homepage</h3>
+      <p>On login, get a homepage with the app title "Fridge Fresher" in green. Highlights the mission: "Save Food. Save Money. Eat Smarter."</p>
+    </div>
+    <div class="feature">
+      <h3>📷 Food Scanner Integration</h3>
+      <p>Easily add food items by scanning barcodes with your device’s camera. Streamline fridge inventory management.</p>
+    </div>
+    <div class="feature">
+      <h3>📝 Manual Input Option</h3>
+      <p>Manually input non-packaged items or leftovers and set expiry dates. Track everything, from packaged goods to fresh produce.</p>
+    </div>
+    <div class="feature">
+      <h3>⏰ Expiry Reminders & Stats</h3>
+      <p>Get timely alerts before food expires. See savings and waste reduction in real-time to help make smarter choices.</p>
+    </div>
+    <div class="feature">
+      <h3>🥘 Smart Recipe Suggestions</h3>
+      <p>Future updates will provide AI-powered recipes based on what you have in your fridge, helping reduce waste and plan meals effortlessly.</p>
+    </div>
+  </div>
 
-  <script>
-    if (Notification.permission !== 'granted') {
-      Notification.requestPermission();
-    }
+  <div class="cta">
+    <button>Download Now</button>
+  </div>
 
-    function startScanner() {
-      Quagga.init({
-        inputStream: {
-          name: "Live",
-          type: "LiveStream",
-          target: document.querySelector('#barcode-scanner'),
-          constraints: { facingMode: "environment" }
-        },
-        decoder: { readers: ["code_128_reader", "ean_reader", "ean_8_reader"] }
-      }, function(err) {
-        if (err) {
-          console.log(err);
-          return;
-        }
-        Quagga.start();
-      });
-
-      Quagga.onDetected(function(result) {
-        const code = result.codeResult.code;
-        alert('Barcode detected: ' + code);
-        document.getElementById("itemName").value = "Scanned Item " + code;
-      });
-    }
-
-    startScanner();
-
-    function searchRecipes() {
-      const ingredients = document.getElementById("ingredientInput").value;
-      suggestRecipes(ingredients);
-    }
-
-    function suggestRecipes(ingredients) {
-      const apiKey = "YOUR_API_KEY"; // Replace with your actual API key
-      const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&apiKey=${apiKey}`;
-      fetch(url)
-        .then(res => res.json())
-        .then(data => {
-          const recipeList = document.getElementById("recipeList");
-          recipeList.innerHTML = '';
-          data.forEach(recipe => {
-            const li = document.createElement("li");
-            li.innerHTML = `<a href="https://spoonacular.com/recipes/${recipe.title.replace(/\s/g, '-')}-${recipe.id}" target="_blank">${recipe.title}</a>`;
-            recipeList.appendChild(li);
-          });
-        })
-        .catch(err => console.error("Error fetching recipes:", err));
-    }
-
-    function getStatus(expiryDate) {
-      const today = new Date();
-      const expiry = new Date(expiryDate);
-      const timeDiff = expiry - today;
-      const days = Math.ceil(timeDiff / (1000 * 3600 * 24));
-
-      if (days < 0) return { label: "Expired", class: "expired" };
-      if (days <= 3) return { label: `${days} day(s) left`, class: "expiring" };
-      return { label: `${days} day(s) left`, class: "fresh" };
-    }
-
-    function notifyBeforeExpiry(itemName, expiryDate) {
-      const today = new Date();
-      const expiry = new Date(expiryDate);
-      const timeDiff = expiry - today;
-      const daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24));
-
-      if (daysLeft <= 3) {
-        new Notification(`Food Expiry Alert: ${itemName}`, {
-          body: `Your ${itemName} expires in ${daysLeft} day(s)!`,
-        });
-      }
-    }
-
-    notifyBeforeExpiry("Milk", "2025-04-30");
-
-    let fullInventory = [];
-
-    function renderTable(inventory) {
-      const tableBody = document.querySelector("#inventoryTable tbody");
-      tableBody.innerHTML = "";
-
-      inventory.forEach((item) => {
-        const status = getStatus(item.expiryDate);
-        const searchQuery = encodeURIComponent(item.itemName + " grocery");
-        const amazonLink = `https://www.amazon.com/s?k=${searchQuery}`;
-
-        const row = `
-          <tr>
-            <td>${item.itemName}</td>
-            <td>${item.quantity}</td>
-            <td>${item.expiryDate}</td>
-            <td class="${status.class}">${status.label}</td>
-            <td><a href="${amazonLink}" target="_blank">Buy Now</a></td>
-          </tr>`;
-        tableBody.insertAdjacentHTML("beforeend", row);
-      });
-
-      updateStats(inventory);
-    }
-
-    function updateStats(inventory) {
-      document.getElementById("totalCount").textContent = inventory.length;
-      document.getElementById("expiringCount").textContent =
-        inventory.filter(i => getStatus(i.expiryDate).class === "expiring").length;
-      document.getElementById("expiredCount").textContent =
-        inventory.filter(i => getStatus(i.expiryDate).class === "expired").length;
-    }
-
-    function filterItems(type) {
-      if (type === "all") return renderTable(fullInventory);
-      const filtered = fullInventory.filter((item) => getStatus(item.expiryDate).class === type);
-      renderTable(filtered);
-    }
-
-    fetch("https://api.sheety.co/feeb616a50f3fbfd6cfa527ee546424d/fridgeFresher/inventory")
-      .then((res) => res.json())
-      .then((data) => {
-        fullInventory = data.inventory;
-        renderTable(fullInventory);
-      });
-
-    document.getElementById("addItemForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const item = {
-        itemName: document.getElementById("itemName").value,
-        quantity: document.getElementById("quantity").value,
-        expiryDate: document.getElementById("expiryDate").value,
-      };
-
-      fetch("https://api.sheety.co/feeb616a50f3fbfd6cfa527ee546424d/fridgeFresher/inventory", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ inventory: item }),
-      })
-        .then((res) => res.json())
-        .then(() => {
-          document.getElementById("formMessage").innerText = "✅ Item added!";
-          setTimeout(() => location.reload(), 1000);
-        })
-        .catch(() => {
-          document.getElementById("formMessage").innerText = "❌ Failed to add item.";
-        });
-    });
-  </script>
 </body>
 </html>
+
 
    
            
