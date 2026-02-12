@@ -2,7 +2,7 @@
 
 This repository showcases hands-on SOC analyst training through 40 comprehensive projects, demonstrating expertise across network security, system monitoring, threat hunting, incident response, and enterprise security operations. This portfolio reflects 20+ years of cumulative skill development, from foundational technical skills to executive-level strategic operations.
 
-Key Skills Demonstrated Across 40 Projects
+## Key Skills Demonstrated Across 40 Projects
 
 Network Security & Host Discovery: Nmap scanning, ping sweeps, port enumeration, service detection.
 
@@ -38,9 +38,9 @@ Threat Intelligence Platforms: MISP, AlienVault OTX, OSINT feeds.
 
 Portfolio Structure
 
-The 40 projects are categorized into four skill levels:
+## The 40 projects are categorized into four skill levels:
 
-1. Beginner Projects (1–5)
+## Beginner Projects (1–5)
 
 Focus on foundational SOC skills:
 
@@ -51,8 +51,7 @@ Linux log monitoring
 Packet capture and analysis with Wireshark
 
 Web vulnerability scanning on DVWA/Metasploitable
-
-2. Intermediate Projects (6–15)
+## Intermediate Projects (6–15)
 
 Focus on practical SOC operations:
 
@@ -63,8 +62,7 @@ SIEM log correlation and analysis
 Network and HTTP enumeration
 
 Identifying failed login attempts and brute force activity
-
-3. Advanced Projects (16–29)
+## Advanced Projects (16–29)
 
 Threat hunting, automation, and malware analysis:
 
@@ -78,7 +76,7 @@ UEBA and AI/ML predictive threat detection
 
 Red-Blue exercises and automated incident response
 
-4. Expert / Executive-Level Projects (30–40)
+## Expert / Executive-Level Projects (30–40)
 
 Enterprise-level SOC leadership and strategic operations:
 
@@ -94,7 +92,7 @@ Advanced Red-Blue-Gold team exercises
 
 Executive dashboards for KPIs, MTTR, MTTD, and risk prioritization
 
-Project Format
+## Project Format
 
 Each project contains:
 
@@ -110,7 +108,7 @@ Evidence / Output: Screenshots, captured logs, or scripts to demonstrate results
 
 This format ensures each project demonstrates both technical capability and critical thinking, making the portfolio suitable for senior SOC analyst, SOC architect, or security operations leadership roles.
 
-Portfolio Highlights
+## Portfolio Highlights
 
 Red-Blue-Gold Team Exercises: Large-scale enterprise attack detection and response simulations.
 
