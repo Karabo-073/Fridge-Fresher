@@ -1,10 +1,10 @@
-SOC Analyst Training Lab – Professional Portfolio
+# SOC Analyst Training Lab – Professional Portfolio
 
 This repository documents hands-on training and practical exercises performed to develop expertise as a Security Operations Center (SOC) Analyst. It demonstrates my ability to identify, investigate, and mitigate security threats, combining technical proficiency with strategic analysis.
 
 With 40 projects spanning beginner to executive-level exercises, this portfolio reflects deep technical knowledge, advanced threat hunting skills, and enterprise-level SOC capabilities.
 
-Key Skills Demonstrated
+#Key Skills Demonstrated
 
 Network Security & Host Discovery: Nmap scanning, ping sweeps, port enumeration, and service identification.
 
@@ -22,7 +22,7 @@ SOC Automation & AI Integration: SOAR playbooks, machine learning anomaly detect
 
 Enterprise Security Leadership: SOC architecture design, Zero Trust implementation, metrics & KPI dashboards.
 
-Tools & Environments Used
+#Tools & Environments Used
 
 Operating Systems: Kali Linux, Ubuntu, Windows Server, Metasploitable.
 
