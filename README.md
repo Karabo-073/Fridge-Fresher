@@ -1,20 +1,41 @@
-# SOC Analyst Training Lab
+SOC Analyst Training Lab – Professional Portfolio
 
-This repository documents my hands-on training toward becoming a Security Operations Center (SOC) Analyst.
+This repository documents hands-on training and practical exercises performed to develop expertise as a Security Operations Center (SOC) Analyst. It demonstrates my ability to identify, investigate, and mitigate security threats, combining technical proficiency with strategic analysis.
 
-## Skills Practiced
-- Nmap scanning and service enumeration
-- Network host discovery
-- Linux log analysis
-- Packet analysis using Wireshark
-- Web investigation techniques
-- Security documentation and reporting
+With 40 projects spanning beginner to executive-level exercises, this portfolio reflects deep technical knowledge, advanced threat hunting skills, and enterprise-level SOC capabilities.
 
-## Tools Used
-- Kali Linux
-- Nmap
-- Wireshark
-- Nikto
-- DVWA / Metasploitable
+Key Skills Demonstrated
 
-Each issue in this repository represents a practical lab exercise and investigation performed as part of my SOC analyst preparation.
+Network Security & Host Discovery: Nmap scanning, ping sweeps, port enumeration, and service identification.
+
+System & Log Analysis: Linux authentication logs, system logs, Windows Sysmon, and cross-platform log monitoring.
+
+Packet & Traffic Analysis: Wireshark captures, network anomaly detection, and protocol analysis.
+
+Web Application Security: Nikto scans, DVWA and Metasploitable exploitation, vulnerability documentation.
+
+Threat Hunting & Intelligence: MITRE ATT&CK mapping, UEBA analysis, threat intelligence integration.
+
+Incident Response & Forensics: Malware analysis, root-cause investigation, multi-stage attack reconstruction.
+
+SOC Automation & AI Integration: SOAR playbooks, machine learning anomaly detection, predictive threat modeling.
+
+Enterprise Security Leadership: SOC architecture design, Zero Trust implementation, metrics & KPI dashboards.
+
+Tools & Environments Used
+
+Operating Systems: Kali Linux, Ubuntu, Windows Server, Metasploitable.
+
+Networking & Scanning: Nmap, Netcat, Zeek/Bro, Suricata.
+
+Packet & Protocol Analysis: Wireshark, tcpdump.
+
+Web & Vulnerability Testing: Nikto, DVWA, Burp Suite (optional).
+
+SIEM & Monitoring: Splunk, ELK stack, Wazuh.
+
+Automation & Orchestration: Cortex XSOAR, Python scripting, Shell scripting.
+
+Forensics & Malware Analysis: Volatility, Cuckoo Sandbox, IDA Pro, Ghidra.
+
+Threat Intelligence Platforms: MISP, AlienVault OTX, OSINT feeds.
