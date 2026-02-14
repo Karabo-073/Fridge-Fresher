@@ -1,125 +1,195 @@
+<!-- Centered Header -->
+<div align="center">
+
 # SOC Analyst Training Portfolio – 40 Projects
 
-This repository showcases hands-on SOC analyst training through 40 comprehensive projects, demonstrating expertise across network security, system monitoring, threat hunting, incident response, and enterprise security operations. This portfolio reflects 20+ years of cumulative skill development, from foundational technical skills to executive-level strategic operations.
+A comprehensive SOC analyst portfolio demonstrating expertise in network security, threat hunting, incident response, SOC automation, and enterprise security operations.
 
-## Key Skills Demonstrated Across 40 Projects
+</div>
 
-Network Security & Host Discovery: Nmap scanning, ping sweeps, port enumeration, service detection.
+<hr>
 
-System & Log Analysis: Linux authentication logs, Windows Sysmon, auditd, cross-platform monitoring.
+<!-- Left-aligned Portfolio Tree -->
+<pre>
+SOC_Analyst_Portfolio/
+├── Beginner_Projects_1-5/
+│   ├── Nmap_Host_Discovery
+│   ├── Linux_Log_Monitoring
+│   ├── Wireshark_Packet_Capture
+│   └── DVWA_Web_Scanning
+├── Intermediate_Projects_6-15/
+│   ├── Service_Enumeration
+│   ├── SIEM_Log_Correlation
+│   ├── Network_and_HTTP_Enumeration
+│   └── Failed_Login_Analysis
+├── Advanced_Projects_16-29/
+│   ├── MITRE_ATT&CK_Threat_Mapping
+│   ├── Cross_Platform_Endpoint_Monitoring
+│   ├── Cloud_Security_Monitoring
+│   ├── UEBA_and_AI_Detection
+│   └── Red_Blue_Exercises
+└── Expert_Projects_30-40/
+    ├── SOC_Architecture_Design
+    ├── SOAR_Automation_and_AI_Integration
+    ├── Threat_Intelligence_Program
+    ├── Zero_Trust_Deployment
+    └── Executive_Dashboards_KPIs
+</pre>
 
-Packet & Traffic Analysis: Wireshark, Zeek/Bro, Suricata, tcpdump.
+<hr>
 
-Web Security Investigations: Nikto scans, DVWA/Metasploitable exploitation, vulnerability documentation.
+<!-- Centered Skills Header -->
+<div align="center">
 
-Threat Hunting & Intelligence: MITRE ATT&CK mapping, UEBA, cloud threat monitoring, TI feed integration.
+## Skills Demonstrated
 
-Incident Response & Forensics: Malware analysis, root-cause investigation, multi-stage attack reconstruction.
+</div>
 
-SOC Automation & AI Integration: SOAR playbooks, ML anomaly detection, predictive threat modeling.
+<!-- Left-aligned Skills Tree -->
+<pre>
+SOC_Skills/
+├── Network_Security_and_Host_Discovery
+│   ├── Nmap Scanning
+│   ├── Ping Sweeps
+│   ├── Port Enumeration
+│   └── Service Detection
+├── System_and_Log_Analysis
+│   ├── Linux Authentication Logs
+│   ├── Windows Sysmon Monitoring
+│   └── auditd & Cross-Platform Log Monitoring
+├── Packet_and_Traffic_Analysis
+│   ├── Wireshark
+│   ├── Zeek/Bro
+│   ├── Suricata
+│   └── tcpdump
+├── Web_Security_Investigations
+│   ├── Nikto Scans
+│   ├── DVWA / Metasploitable Exploitation
+│   └── Web Vulnerability Documentation
+├── Threat_Hunting_and_Intelligence
+│   ├── MITRE ATT&CK Mapping
+│   ├── UEBA
+│   ├── Cloud Threat Monitoring
+│   └── Threat Intelligence Feed Integration
+├── Incident_Response_and_Forensics
+│   ├── Malware Analysis
+│   ├── Root Cause Investigation
+│   └── Multi-Stage Attack Reconstruction
+├── SOC_Automation_and_AI
+│   ├── SOAR Playbooks
+│   ├── ML Anomaly Detection
+│   └── Predictive Threat Modeling
+└── Enterprise_Security_Leadership
+    ├── SOC Architecture Design
+    ├── Zero Trust Deployment
+    ├── Red-Blue-Gold Team Operations
+    └── Executive Dashboards & KPI Monitoring
+</pre>
 
-Enterprise Security Leadership: SOC architecture design, Zero Trust deployment, executive dashboards, Red-Blue-Gold team operations.
+<hr>
 
-Tools & Environments Used
+<!-- Centered Tools Header -->
+<div align="center">
 
-Operating Systems: Kali Linux, Ubuntu, Windows Server, Metasploitable.
+## Tools & Environments Used
 
-Network & Vulnerability Tools: Nmap, Netcat, Zeek/Bro, Suricata, Nikto.
+</div>
 
-Packet & Protocol Analysis: Wireshark, tcpdump.
+<!-- Left-aligned Tools Tree -->
+<pre>
+SOC_Tools/
+├── Operating_Systems
+│   ├── Kali Linux
+│   ├── Ubuntu
+│   ├── Windows Server
+│   └── Metasploitable
+├── Network_and_Vulnerability_Tools
+│   ├── Nmap
+│   ├── Netcat
+│   ├── Zeek/Bro
+│   ├── Suricata
+│   └── Nikto
+├── Packet_Analysis
+│   ├── Wireshark
+│   └── tcpdump
+├── SIEM_and_Monitoring
+│   ├── Splunk
+│   ├── ELK Stack
+│   └── Wazuh
+├── Automation_and_Orchestration
+│   ├── Cortex XSOAR
+│   ├── Python
+│   └── Shell Scripting
+├── Forensics_and_Malware_Analysis
+│   ├── Volatility
+│   ├── Cuckoo Sandbox
+│   ├── IDA Pro
+│   └── Ghidra
+└── Threat_Intelligence_Platforms
+    ├── MISP
+    ├── AlienVault OTX
+    └── OSINT Feeds
+</pre>
 
-SIEM & Monitoring: Splunk, ELK Stack, Wazuh.
+<hr>
 
-Automation & Orchestration: Cortex XSOAR, Python, Shell scripting.
-
-Forensics & Malware Analysis: Volatility, Cuckoo Sandbox, IDA Pro, Ghidra.
-
-Threat Intelligence Platforms: MISP, AlienVault OTX, OSINT feeds.
-
-Portfolio Structure
-
-## The 40 projects are categorized into four skill levels:
-
-## Beginner Projects (1–5)
-
-Focus on foundational SOC skills:
-
-Nmap scanning, network host discovery
-
-Linux log monitoring
-
-Packet capture and analysis with Wireshark
-
-Web vulnerability scanning on DVWA/Metasploitable
-## Intermediate Projects (6–15)
-
-Focus on practical SOC operations:
-
-Service enumeration and version detection
-
-SIEM log correlation and analysis
-
-Network and HTTP enumeration
-
-Identifying failed login attempts and brute force activity
-## Advanced Projects (16–29)
-
-Threat hunting, automation, and malware analysis:
-
-MITRE ATT&CK threat mapping
-
-Cross-platform endpoint monitoring
-
-Cloud security monitoring
-
-UEBA and AI/ML predictive threat detection
-
-Red-Blue exercises and automated incident response
-
-## Expert / Executive-Level Projects (30–40)
-
-Enterprise-level SOC leadership and strategic operations:
-
-SOC architecture design and optimization
-
-SOAR automation and AI integration
-
-Threat intelligence program development
-
-Zero Trust deployment and enterprise-wide risk management
-
-Advanced Red-Blue-Gold team exercises
-
-Executive dashboards for KPIs, MTTR, MTTD, and risk prioritization
-
-## Project Format
-
-Each project contains:
-
-Objective: The goal and skill being developed.
-
-Tools / Commands Used: Terminal commands, scripts, SIEM queries, or lab setup.
-
-Findings: Key observations and results from the exercise.
-
-Analysis & Impact: Insights, security implications, and how it translates to SOC operations.
-
-Evidence / Output: Screenshots, captured logs, or scripts to demonstrate results.
-
-This format ensures each project demonstrates both technical capability and critical thinking, making the portfolio suitable for senior SOC analyst, SOC architect, or security operations leadership roles.
+<!-- Centered Portfolio Highlights Header -->
+<div align="center">
 
 ## Portfolio Highlights
 
-Red-Blue-Gold Team Exercises: Large-scale enterprise attack detection and response simulations.
+</div>
 
-SOC Automation & AI Integration: SOAR playbooks, ML anomaly detection, predictive modeling.
+<!-- Beautiful Table for Highlights -->
+<table align="center">
+  <tr>
+    <th>Category</th>
+    <th>Key Skills Demonstrated</th>
+    <th>Tools / Technologies</th>
+  </tr>
+  <tr>
+    <td>Red-Blue-Gold Team Exercises</td>
+    <td>Enterprise attack detection & response simulations</td>
+    <td>Windows, Linux, Metasploitable, SIEM</td>
+  </tr>
+  <tr>
+    <td>SOC Automation & AI Integration</td>
+    <td>SOAR playbooks, ML anomaly detection, predictive modeling</td>
+    <td>Cortex XSOAR, Python, Shell Scripting</td>
+  </tr>
+  <tr>
+    <td>Threat Intelligence Correlation</td>
+    <td>TI feeds correlated with SIEM and endpoint monitoring</td>
+    <td>MISP, AlienVault OTX, ELK Stack, Wazuh</td>
+  </tr>
+  <tr>
+    <td>Cross-Platform Threat Hunting</td>
+    <td>Windows, Linux, and macOS analysis in hybrid environments</td>
+    <td>Sysmon, auditd, Wireshark, tcpdump</td>
+  </tr>
+  <tr>
+    <td>Enterprise Incident Response</td>
+    <td>Multi-stage ransomware, insider threat, APT investigation</td>
+    <td>Volatility, Cuckoo Sandbox, Splunk, ELK</td>
+  </tr>
+  <tr>
+    <td>Zero Trust & Enterprise Security Design</td>
+    <td>Micro-segmentation, MFA, continuous identity verification</td>
+    <td>Windows AD, Linux PAM, MFA tools</td>
+  </tr>
+  <tr>
+    <td>Executive Dashboards</td>
+    <td>KPI monitoring for MTTR, MTTD, threat trends, asset risk</td>
+    <td>Splunk, ELK Stack, Wazuh</td>
+  </tr>
+</table>
 
-Threat Intelligence Integration: TI feeds correlated with SIEM and endpoint monitoring for proactive defense.
+<hr>
 
-Cross-Platform Threat Hunting: Windows, Linux, and macOS analysis in hybrid environments.
+<!-- Centered Footer -->
+<div align="center">
 
-Enterprise Incident Response: Multi-stage ransomware, insider threat, and APT investigation.
+This portfolio demonstrates both technical capability and strategic SOC leadership.  
 
-Zero Trust & Enterprise Security Design: Micro-segmentation, MFA, continuous identity verification.
+</div>
 
-Executive Dashboards: KPI monitoring for MTTR, MTTD, threat trends, and asset risk prioritization.
