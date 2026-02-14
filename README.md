@@ -1,249 +1,177 @@
-<!-- Centered Header -->
-<div align="center">
+<!-- Main SOC Analyst Portfolio README -->
 
-# SOC Analyst Training Portfolio – 38 Projects
+<div align="center" style="font-family: Arial, sans-serif; line-height: 1.6;">
 
-A comprehensive SOC analyst portfolio demonstrating expertise in network security, threat hunting, incident response, SOC automation, and enterprise security operations.
+<u><h1>Global SOC Analyst Portfolio – Comprehensive Cybersecurity Labs</h1></u>
 
+<br>
+
+<!-- Cybersecurity Eye-Catching Banner -->
+<div align="center" style="margin: 30px 0;">
+    <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4434f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1000" 
+         alt="Cybersecurity Defense Concept" 
+         width="85%" 
+         style="border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.3);">
 </div>
 
-<hr>
+This portfolio presents a global-standard collection of hands-on Security Operations Center (SOC) labs and exercises, showcasing practical expertise in threat detection, vulnerability management, network defense, incident response, and malware triage. 
+It demonstrates proficiency across multiple platforms, tools, and methodologies, emphasizing the ability to operate in enterprise-level environments and international cybersecurity frameworks. 
+The portfolio highlights skills essential for protecting organizations against evolving cyber threats while adhering to global best practices in security monitoring, risk assessment, and response.
 
-<!-- Left-aligned Portfolio Tree -->
+<br><br>
+
+<u><h2>Portfolio Structure (Tree Diagram)</h2></u>
+
 <pre>
-SOC_Analyst_Portfolio/
-├── Beginner_Projects_1-5/
-│   ├── Nmap_Host_Discovery
-│   │   ├── Objective: Scan network hosts and identify open ports
-│   │   ├── Commands: nmap -sV -p- 10.10.10.10
-│   │   └── Expected Results: List of open ports and services
-│   ├── Linux_Log_Monitoring
-│   │   ├── Objective: Monitor authentication logs
-│   │   ├── Commands: tail -f /var/log/auth.log
-│   │   └── Expected Results: Capture login attempts and failures
-│   ├── Wireshark_Packet_Capture
-│   │   ├── Objective: Capture network traffic for analysis
-│   │   ├── Commands: wireshark or tcpdump -i eth0 -w capture.pcap
-│   │   └── Expected Results: Packet capture for inspection
-│   └── DVWA_Web_Scanning
-│       ├── Objective: Scan web app vulnerabilities
-│       ├── Commands: nikto -h http://10.10.10.10
-│       └── Expected Results: List of web vulnerabilities
-├── Intermediate_Projects_6-15/
-│   ├── Service_Enumeration
-│   │   ├── Objective: Identify running services and versions
-│   │   ├── Commands: nmap -sV 10.10.10.10
-│   │   └── Expected Results: Open ports with service details
-│   ├── SIEM_Log_Correlation
-│   │   ├── Objective: Correlate logs to detect anomalies
-│   │   ├── Commands: Splunk queries / ELK searches
-│   │   └── Expected Results: Detect suspicious patterns
-│   ├── Network_and_HTTP_Enumeration
-│   │   ├── Objective: Map network hosts and web endpoints
-│   │   ├── Commands: nmap, curl, dirb
-│   │   └── Expected Results: List of hosts and endpoints
-│   └── Failed_Login_Analysis
-│       ├── Objective: Detect brute-force attempts
-│       ├── Commands: grep "Failed password" /var/log/auth.log
-│       └── Expected Results: List of failed login attempts
-├── Advanced_Projects_16-29/
-│   ├── MITRE_ATT&CK_Threat_Mapping
-│   │   ├── Objective: Map detected threats to MITRE ATT&CK
-│   │   ├── Commands: Manual analysis, SIEM correlation
-│   │   └── Expected Results: Threat tactics identified
-│   ├── Cross_Platform_Endpoint_Monitoring
-│   │   ├── Objective: Monitor Windows & Linux endpoints
-│   │   ├── Commands: Sysmon, auditd, Wazuh agents
-│   │   └── Expected Results: Alerts on abnormal activity
-│   ├── Cloud_Security_Monitoring
-│   │   ├── Objective: Monitor cloud services for anomalies
-│   │   ├── Commands: Cloud SIEM dashboards / logs
-│   │   └── Expected Results: Suspicious cloud activities detected
-│   ├── UEBA_and_AI_Detection
-│   │   ├── Objective: Detect anomalous user behavior
-│   │   ├── Commands: UEBA analytics dashboards
-│   │   └── Expected Results: Suspicious behavioral alerts
-│   └── Red_Blue_Exercises
-│       ├── Objective: Participate in attack-defense simulations
-│       ├── Commands: Offensive & defensive tools
-│       └── Expected Results: Detection and mitigation of attacks
-└── Expert_Projects_30-40/
-    ├── SOC_Architecture_Design
-    │   ├── Objective: Design enterprise SOC structure
-    │   ├── Commands: Network diagrams and policy setup
-    │   └── Expected Results: Optimized SOC workflow
-    ├── SOAR_Automation_and_AI_Integration
-    │   ├── Objective: Automate incident response
-    │   ├── Commands: Cortex XSOAR playbooks
-    │   └── Expected Results: Faster response times
-    ├── Threat_Intelligence_Program
-    │   ├── Objective: Develop threat intelligence program
-    │   ├── Commands: MISP, OTX feed integration
-    │   └── Expected Results: Proactive threat detection
-    ├── Zero_Trust_Deployment
-    │   ├── Objective: Implement Zero Trust policies
-    │   ├── Commands: MFA, micro-segmentation setup
-    │   └── Expected Results: Reduced attack surface
-    └── Executive_Dashboards_KPIs
-        ├── Objective: Track SOC KPIs and metrics
-        ├── Commands: Splunk, ELK dashboards
-        └── Expected Results: MTTR, MTTD, threat trends monitored
+Global_SOC_Analyst_Portfolio/
+│
+├── Vulnerability_Management
+│     ├── Nmap Full TCP Scan
+│     ├── Ping Sweep & Host Discovery
+│     └── Web Vulnerability Assessment (Nikto / DVWA)
+│
+├── Linux_Log_Analysis
+│     ├── Authentication & Failed Login Analysis
+│     ├── Event Correlation & System Monitoring
+│     └── Security Alert Validation
+│
+├── Firewall_Configuration & Network_Hardening
+│     ├── Firewall Rule Implementation (pfSense)
+│     ├── VLAN Segmentation & Access Policies
+│     └── Network Traffic Monitoring & Logging
+│
+└── Incident_Response & Malware_Triage
+      ├── Malware Detection & Analysis
+      ├── Containment & Eradication Procedures
+      └── Recovery, Documentation & Lessons Learned
 </pre>
 
-<hr>
+<br>
 
-<!-- Centered Skills Header -->
-<div align="center">
+<u><h2>Global Tools & Platforms</h2></u>
 
-## Skills Demonstrated
-
-</div>
-
-<!-- Left-aligned Skills Tree -->
-<pre>
-SOC_Skills/
-├── Network_Security_and_Host_Discovery
-│   ├── Nmap Scanning
-│   ├── Ping Sweeps
-│   ├── Port Enumeration
-│   └── Service Detection
-├── System_and_Log_Analysis
-│   ├── Linux Authentication Logs
-│   ├── Windows Sysmon Monitoring
-│   └── auditd & Cross-Platform Log Monitoring
-├── Packet_and_Traffic_Analysis
-│   ├── Wireshark
-│   ├── Zeek/Bro
-│   ├── Suricata
-│   └── tcpdump
-├── Web_Security_Investigations
-│   ├── Nikto Scans
-│   ├── DVWA / Metasploitable Exploitation
-│   └── Web Vulnerability Documentation
-├── Threat_Hunting_and_Intelligence
-│   ├── MITRE ATT&CK Mapping
-│   ├── UEBA
-│   ├── Cloud Threat Monitoring
-│   └── Threat Intelligence Feed Integration
-├── Incident_Response_and_Forensics
-│   ├── Malware Analysis
-│   ├── Root Cause Investigation
-│   └── Multi-Stage Attack Reconstruction
-├── SOC_Automation_and_AI
-│   ├── SOAR Playbooks
-│   ├── ML Anomaly Detection
-│   └── Predictive Threat Modeling
-└── Enterprise_Security_Leadership
-    ├── SOC Architecture Design
-    ├── Zero Trust Deployment
-    ├── Red-Blue-Gold Team Operations
-    └── Executive Dashboards & KPI Monitoring
-</pre>
-
-<hr>
-
-<!-- Centered Tools Header -->
-<div align="center">
-
-## Tools & Environments Used
-
-</div>
-
-<!-- Left-aligned Tools Tree -->
-<pre>
-SOC_Tools/
-├── Operating_Systems
-│   ├── Kali Linux
-│   ├── Ubuntu
-│   ├── Windows Server
-│   └── Metasploitable
-├── Network_and_Vulnerability_Tools
-│   ├── Nmap
-│   ├── Netcat
-│   ├── Zeek/Bro
-│   ├── Suricata
-│   └── Nikto
-├── Packet_Analysis
-│   ├── Wireshark
-│   └── tcpdump
-├── SIEM_and_Monitoring
-│   ├── Splunk
-│   ├── ELK Stack
-│   └── Wazuh
-├── Automation_and_Orchestration
-│   ├── Cortex XSOAR
-│   ├── Python
-│   └── Shell Scripting
-├── Forensics_and_Malware_Analysis
-│   ├── Volatility
-│   ├── Cuckoo Sandbox
-│   ├── IDA Pro
-│   └── Ghidra
-└── Threat_Intelligence_Platforms
-    ├── MISP
-    ├── AlienVault OTX
-    └── OSINT Feeds
-</pre>
-
-<hr>
-
-<!-- Centered Portfolio Highlights Header -->
-<div align="center">
-
-## Portfolio Highlights
-
-</div>
-
-<!-- Beautiful Table for Highlights -->
-<table align="center">
-  <tr>
-    <th>Category</th>
-    <th>Key Skills Demonstrated</th>
-    <th>Tools / Technologies</th>
-  </tr>
-  <tr>
-    <td>Red-Blue-Gold Team Exercises</td>
-    <td>Enterprise attack detection & response simulations</td>
-    <td>Windows, Linux, Metasploitable, SIEM</td>
-  </tr>
-  <tr>
-    <td>SOC Automation & AI Integration</td>
-    <td>SOAR playbooks, ML anomaly detection, predictive modeling</td>
-    <td>Cortex XSOAR, Python, Shell Scripting</td>
-  </tr>
-  <tr>
-    <td>Threat Intelligence Correlation</td>
-    <td>TI feeds correlated with SIEM and endpoint monitoring</td>
-    <td>MISP, AlienVault OTX, ELK Stack, Wazuh</td>
-  </tr>
-  <tr>
-    <td>Cross-Platform Threat Hunting</td>
-    <td>Windows, Linux, and macOS analysis in hybrid environments</td>
-    <td>Sysmon, auditd, Wireshark, tcpdump</td>
-  </tr>
-  <tr>
-    <td>Enterprise Incident Response</td>
-    <td>Multi-stage ransomware, insider threat, APT investigation</td>
-    <td>Volatility, Cuckoo Sandbox, Splunk, ELK</td>
-  </tr>
-  <tr>
-    <td>Zero Trust & Enterprise Security Design</td>
-    <td>Micro-segmentation, MFA, continuous identity verification</td>
-    <td>Windows AD, Linux PAM, MFA tools</td>
-  </tr>
-  <tr>
-    <td>Executive Dashboards</td>
-    <td>KPI monitoring for MTTR, MTTD, threat trends, asset risk</td>
-    <td>Splunk, ELK Stack, Wazuh</td>
-  </tr>
+<table border="1" cellpadding="8" cellspacing="0" align="center">
+<tr>
+<th>Category</th>
+<th>Tools / Platforms</th>
+<th>Purpose</th>
+</tr>
+<tr>
+<td>Operating Systems</td>
+<td>Kali Linux, Ubuntu, Windows Server, Metasploitable</td>
+<td>Penetration testing, lab environments, cross-platform monitoring</td>
+</tr>
+<tr>
+<td>Network & Vulnerability Tools</td>
+<td>Nmap, Netcat, Nikto, OpenVAS</td>
+<td>Network scanning, port/service enumeration, vulnerability assessment</td>
+</tr>
+<tr>
+<td>Packet Analysis</td>
+<td>Wireshark, tcpdump</td>
+<td>Traffic inspection, anomaly detection, alert verification</td>
+</tr>
+<tr>
+<td>Firewall & Hardening</td>
+<td>pfSense</td>
+<td>Perimeter defense, segmentation, access control</td>
+</tr>
+<tr>
+<td>Log Analysis & SIEM</td>
+<td>Linux Logs, Windows Sysmon, Splunk, ELK Stack</td>
+<td>Event correlation, threat intelligence integration, monitoring</td>
+</tr>
+<tr>
+<td>Malware & Forensics</td>
+<td>Volatility, Sandbox Tools, Antivirus</td>
+<td>Memory forensics, malware triage, root cause identification</td>
+</tr>
+<tr>
+<td>Web Security Labs</td>
+<td>DVWA, Metasploitable</td>
+<td>Web application vulnerability exploitation, lab-based risk assessment</td>
+</tr>
 </table>
 
-<hr>
+<br>
 
-<!-- Centered Footer -->
-<div align="center">
+<u><h2>Practical Labs – Highlights</h2></u>
 
-This portfolio demonstrates both technical capability and strategic SOC leadership.  
+<div align="center"><u>Vulnerability Management & Scanning</u></div>
+<pre>
+Objective:
+• Identify exposed services and vulnerabilities on internal lab network.
+Commands:
+• sudo nmap -sS -sV -O -p-
+• nmap -sn
+• nikto -h http://<target>
+Findings:
+• Live hosts discovered
+• TCP ports and service versions enumerated
+• Outdated web server software and misconfigurations identified
+Analysis:
+• Prioritize remediation based on exposed services
+• Reduce attack surface and document findings
+</pre>
+
+<div align="center"><u>Linux Log Analysis & Monitoring</u></div>
+<pre>
+Objective:
+• Detect failed logins and potential brute force attacks via system logs.
+Commands:
+• cat /var/log/auth.log | grep "Failed"
+• journalctl -xe | grep -i "error"
+Findings:
+• Multiple failed login attempts and suspicious IPs
+Analysis:
+• Continuous monitoring essential for SOC alerting
+• Correlate logs with threat intelligence feeds
+</pre>
+
+<div align="center"><u>Firewall Configuration & Network Hardening</u></div>
+<pre>
+Objective:
+• Strengthen network perimeter and enforce access controls.
+Commands:
+• pfSense GUI / CLI for firewall and VLAN setup
+Findings:
+• Unauthorized traffic blocked
+• Segmentation reduces lateral movement
+Analysis:
+• Demonstrates professional SOC-level network defense
+</pre>
+
+<div align="center"><u>Security Incident Response & Malware Triage</u></div>
+<pre>
+Objective:
+• Simulate real-world malware incident, perform containment, eradication, and recovery.
+Commands:
+• Analyze logs (Linux/Windows/SIEM)
+• Sandbox malware analysis and Volatility memory inspection
+Findings:
+• Malware detected, contained, and remediated
+• Recovery completed and lessons documented
+Analysis:
+• Structured incident response ensures operational continuity
+• Enhances SOC readiness and process documentation
+</pre>
+
+<br>
+
+<u><h2>Professional Summary</h2></u>
+
+This portfolio represents **global cybersecurity readiness** for enterprise SOC roles, demonstrating:
+
+• Vulnerability management and exposure analysis  
+• Linux/Windows log monitoring and alerting  
+• Network scanning, firewall hardening, and segmentation  
+• Malware triage, incident response, and recovery  
+• Documentation and reporting following international SOC standards  
+
+<br><br>
+
+<div align="center"><u>Portfolio Ready for International Recruiters, GitHub, and SOC Analyst Opportunities</u></div>
 
 </div>
+
 
