@@ -6,13 +6,6 @@
 
 <br>
 
-<!-- Cybersecurity Eye-Catching Banner -->
-<div align="center" style="margin: 30px 0;">
-    <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4434f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1000" 
-         alt="Cybersecurity Defense Concept" 
-         width="85%" 
-         style="border-radius: 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.3);">
-</div>
 
 This portfolio presents a global-standard collection of hands-on Security Operations Center (SOC) labs and exercises, showcasing practical expertise in threat detection, vulnerability management, network defense, incident response, and malware triage. 
 It demonstrates proficiency across multiple platforms, tools, and methodologies, emphasizing the ability to operate in enterprise-level environments and international cybersecurity frameworks. 
