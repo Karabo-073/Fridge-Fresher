@@ -1,7 +1,7 @@
 <!-- Centered Header -->
 <div align="center">
 
-# SOC Analyst Training Portfolio – 40 Projects
+# SOC Analyst Training Portfolio – 38 Projects
 
 A comprehensive SOC analyst portfolio demonstrating expertise in network security, threat hunting, incident response, SOC automation, and enterprise security operations.
 
