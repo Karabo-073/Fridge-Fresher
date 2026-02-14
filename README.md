@@ -14,26 +14,80 @@ A comprehensive SOC analyst portfolio demonstrating expertise in network securit
 SOC_Analyst_Portfolio/
 ├── Beginner_Projects_1-5/
 │   ├── Nmap_Host_Discovery
+│   │   ├── Objective: Scan network hosts and identify open ports
+│   │   ├── Commands: nmap -sV -p- 10.10.10.10
+│   │   └── Expected Results: List of open ports and services
 │   ├── Linux_Log_Monitoring
+│   │   ├── Objective: Monitor authentication logs
+│   │   ├── Commands: tail -f /var/log/auth.log
+│   │   └── Expected Results: Capture login attempts and failures
 │   ├── Wireshark_Packet_Capture
+│   │   ├── Objective: Capture network traffic for analysis
+│   │   ├── Commands: wireshark or tcpdump -i eth0 -w capture.pcap
+│   │   └── Expected Results: Packet capture for inspection
 │   └── DVWA_Web_Scanning
+│       ├── Objective: Scan web app vulnerabilities
+│       ├── Commands: nikto -h http://10.10.10.10
+│       └── Expected Results: List of web vulnerabilities
 ├── Intermediate_Projects_6-15/
 │   ├── Service_Enumeration
+│   │   ├── Objective: Identify running services and versions
+│   │   ├── Commands: nmap -sV 10.10.10.10
+│   │   └── Expected Results: Open ports with service details
 │   ├── SIEM_Log_Correlation
+│   │   ├── Objective: Correlate logs to detect anomalies
+│   │   ├── Commands: Splunk queries / ELK searches
+│   │   └── Expected Results: Detect suspicious patterns
 │   ├── Network_and_HTTP_Enumeration
+│   │   ├── Objective: Map network hosts and web endpoints
+│   │   ├── Commands: nmap, curl, dirb
+│   │   └── Expected Results: List of hosts and endpoints
 │   └── Failed_Login_Analysis
+│       ├── Objective: Detect brute-force attempts
+│       ├── Commands: grep "Failed password" /var/log/auth.log
+│       └── Expected Results: List of failed login attempts
 ├── Advanced_Projects_16-29/
 │   ├── MITRE_ATT&CK_Threat_Mapping
+│   │   ├── Objective: Map detected threats to MITRE ATT&CK
+│   │   ├── Commands: Manual analysis, SIEM correlation
+│   │   └── Expected Results: Threat tactics identified
 │   ├── Cross_Platform_Endpoint_Monitoring
+│   │   ├── Objective: Monitor Windows & Linux endpoints
+│   │   ├── Commands: Sysmon, auditd, Wazuh agents
+│   │   └── Expected Results: Alerts on abnormal activity
 │   ├── Cloud_Security_Monitoring
+│   │   ├── Objective: Monitor cloud services for anomalies
+│   │   ├── Commands: Cloud SIEM dashboards / logs
+│   │   └── Expected Results: Suspicious cloud activities detected
 │   ├── UEBA_and_AI_Detection
+│   │   ├── Objective: Detect anomalous user behavior
+│   │   ├── Commands: UEBA analytics dashboards
+│   │   └── Expected Results: Suspicious behavioral alerts
 │   └── Red_Blue_Exercises
+│       ├── Objective: Participate in attack-defense simulations
+│       ├── Commands: Offensive & defensive tools
+│       └── Expected Results: Detection and mitigation of attacks
 └── Expert_Projects_30-40/
     ├── SOC_Architecture_Design
+    │   ├── Objective: Design enterprise SOC structure
+    │   ├── Commands: Network diagrams and policy setup
+    │   └── Expected Results: Optimized SOC workflow
     ├── SOAR_Automation_and_AI_Integration
+    │   ├── Objective: Automate incident response
+    │   ├── Commands: Cortex XSOAR playbooks
+    │   └── Expected Results: Faster response times
     ├── Threat_Intelligence_Program
+    │   ├── Objective: Develop threat intelligence program
+    │   ├── Commands: MISP, OTX feed integration
+    │   └── Expected Results: Proactive threat detection
     ├── Zero_Trust_Deployment
+    │   ├── Objective: Implement Zero Trust policies
+    │   ├── Commands: MFA, micro-segmentation setup
+    │   └── Expected Results: Reduced attack surface
     └── Executive_Dashboards_KPIs
+        ├── Objective: Track SOC KPIs and metrics
+        ├── Commands: Splunk, ELK dashboards
+        └── Expected Results: MTTR, MTTD, threat trends monitored
 </pre>
 
 <hr>
