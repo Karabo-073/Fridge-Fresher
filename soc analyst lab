@@ -1,0 +1,111 @@
+<!-- SOC Analyst Training Lab README -->
+
+<div align="center" style="font-family: Arial, sans-serif; line-height: 1.6;">
+
+<u><strong>SOC Analyst Training Lab</strong></u>
+
+<br><br>
+
+This project documents my practical journey toward becoming a Security Operations Center (SOC) Analyst through structured hands-on labs and investigations.
+
+<br><br>
+
+<u><strong>Training Structure (Tree Diagram)</strong></u>
+
+<pre>
+SOC Analyst Training
+│
+├── 1. Network Reconnaissance
+│     ├── Host Discovery
+│     ├── Port Scanning
+│     └── Service Enumeration
+│
+├── 2. Log Analysis
+│     ├── Authentication Logs
+│     ├── Failed Login Detection
+│     └── Privilege Escalation Monitoring
+│
+├── 3. Traffic Investigation
+│     ├── Packet Capture
+│     ├── Protocol Filtering
+│     └── Suspicious IP Analysis
+│
+├── 4. Web Security Testing
+│     ├── Web Server Scanning
+│     ├── Vulnerability Identification
+│     └── Misconfiguration Detection
+│
+└── 5. Documentation & Reporting
+      ├── Risk Assessment
+      ├── Remediation Guidance
+      └── Incident Reporting
+</pre>
+
+<br>
+
+<u><strong>Focus Areas</strong></u><br>
+• Network scanning and service enumeration with Nmap<br>
+• Host discovery and network mapping<br>
+• Linux log analysis for detecting attacks<br>
+• Packet analysis using Wireshark<br>
+• Web server investigation using Nikto and DVWA<br>
+• Security documentation and reporting
+
+<br><br>
+
+<u><strong>Tools Used</strong></u>
+
+<table border="1" cellpadding="8" cellspacing="0" align="center">
+<tr>
+<th>Tool</th>
+<th>Purpose</th>
+</tr>
+<tr>
+<td>Kali Linux</td>
+<td>Penetration testing and security lab environment</td>
+</tr>
+<tr>
+<td>Nmap</td>
+<td>Network scanning and service enumeration</td>
+</tr>
+<tr>
+<td>Wireshark</td>
+<td>Packet capture and traffic analysis</td>
+</tr>
+<tr>
+<td>Nikto</td>
+<td>Web server vulnerability scanning</td>
+</tr>
+<tr>
+<td>DVWA / Metasploitable</td>
+<td>Intentionally vulnerable lab environments</td>
+</tr>
+</table>
+
+<br><br>
+
+<u><strong>Practical Experience Gained</strong></u>
+
+<pre>
+Hands-On SOC Skills
+│
+├── Threat Detection
+├── Log Correlation
+├── Network Traffic Analysis
+├── Vulnerability Identification
+├── Risk Prioritization
+└── Security Reporting
+</pre>
+
+<br>
+
+<u><strong>Project Purpose</strong></u><br>
+Each issue in this project represents a real lab exercise where I practiced identifying, analyzing, and documenting potential security events like a SOC analyst. 
+The goal is to simulate real-world SOC operations and build readiness for entry-level cybersecurity roles.
+
+<br><br>
+
+<u><strong>Professional Statement</strong></u><br>
+This training lab demonstrates structured cybersecurity learning, technical investigation skills, and analytical thinking required in a Security Operations Center environment.
+
+</div>
