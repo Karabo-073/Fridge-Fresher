@@ -163,7 +163,7 @@ This portfolio represents **global cybersecurity readiness** for enterprise SOC 
 
 <br><br>
 
-<div align="center"><u>Portfolio Ready for International Recruiters, GitHub, and SOC Analyst Opportunities</u></div>
+<div align="center"><u>Portfolio</u></div>
 
 </div>
 
