@@ -6,7 +6,6 @@
 
 <br>
 
-
 This portfolio presents a global-standard collection of hands-on Security Operations Center (SOC) labs and exercises, showcasing practical expertise in threat detection, vulnerability management, network defense, incident response, and malware triage. 
 It demonstrates proficiency across multiple platforms, tools, and methodologies, emphasizing the ability to operate in enterprise-level environments and international cybersecurity frameworks. 
 The portfolio highlights skills essential for protecting organizations against evolving cyber threats while adhering to global best practices in security monitoring, risk assessment, and response.
@@ -33,8 +32,9 @@ Global_SOC_Analyst_Portfolio/
 │     ├── VLAN Segmentation & Access Policies
 │     └── Network Traffic Monitoring & Logging
 │
-└── Incident_Response & Malware_Triage
-      ├── Malware Detection & Analysis
+└── Incident_Response_&_Malware_Triage
+      ├── Ransomware Simulation & Analysis
+      ├── Trojan Simulation & Analysis
       ├── Containment & Eradication Procedures
       └── Recovery, Documentation & Lessons Learned
 </pre>
@@ -137,12 +137,17 @@ Analysis:
 <div align="center"><u>Security Incident Response & Malware Triage</u></div>
 <pre>
 Objective:
-• Simulate real-world malware incident, perform containment, eradication, and recovery.
+• Simulate real-world malware incidents, perform containment, eradication, and recovery.
 Commands:
 • Analyze logs (Linux/Windows/SIEM)
 • Sandbox malware analysis and Volatility memory inspection
+Labs Included:
+• Ransomware Simulation & Analysis – controlled lab execution of ransomware to study file encryption behavior, C2 attempts, and recovery processes.
+• Trojan Simulation & Analysis – lab simulation of trojan infection to analyze persistence, outbound connections, and memory artifacts.
+• Containment & Eradication Procedures – safe isolation and remediation strategies.
+• Recovery, Documentation & Lessons Learned – structured SOC response and operational continuity.
 Findings:
-• Malware detected, contained, and remediated
+• Malware behavior identified, contained, and remediated
 • Recovery completed and lessons documented
 Analysis:
 • Structured incident response ensures operational continuity
@@ -158,7 +163,7 @@ This portfolio represents **global cybersecurity readiness** for enterprise SOC 
 • Vulnerability management and exposure analysis  
 • Linux/Windows log monitoring and alerting  
 • Network scanning, firewall hardening, and segmentation  
-• Malware triage, incident response, and recovery  
+• Malware triage, incident response, and recovery (Ransomware & Trojan simulations)  
 • Documentation and reporting following international SOC standards  
 
 <br><br>
@@ -166,5 +171,3 @@ This portfolio represents **global cybersecurity readiness** for enterprise SOC 
 <div align="center"><u>Portfolio</u></div>
 
 </div>
-
-
