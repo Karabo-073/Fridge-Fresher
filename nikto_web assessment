@@ -1,0 +1,74 @@
+Overview
+
+This phase of the vulnerability management process focused on identifying web application misconfigurations, exposed services, and exploitable vulnerabilities using industry-standard tools in a controlled lab environment.
+
+Objective
+
+To perform automated web server scanning in order to identify:
+                                                              Outdated software versions
+                                                              Dangerous files and directories
+                                                              Security misconfigurations
+                                                              Missing HTTP security headers
+ nikto -h http://<target_ip>
+ Nikto performs over 6,000 tests including:
+Server version disclosure
+Default credentials
+Insecure HTTP methods
+Directory indexing
+Known vulnerable scripts
+SSL configuration issues
+
+ | Finding                    | Risk Level | Description                  |
+| -------------------------- | ---------- | ---------------------------- |
+| Outdated Apache Version    | High       | Vulnerable to known CVEs     |
+| Directory Indexing Enabled | Medium     | Sensitive files exposed      |
+| Missing Security Headers   | Medium     | Increased XSS risk           |
+| Exposed Admin Page         | High       | Potential brute-force target |
+
+
+eg                                                                            nikto -h https://testphp.vulnweb.com
+findings:Multiple IPs found:
+172.104.203.186
+172.104.251.198
+139.162.174.209
+...                                      What This Means
+The domain resolves to multiple IP addresses.
+This is likely due to:
+Load balancing
+CDN usage
+High availability infrastructure
+                                                                               Target IP: 172.104.203.186
+                                                                               Target Hostname: testphp.vulweb.com
+                                                                               Target Port: 443  
+                   SSL/TLS Configuration Review
+| Component             | Finding                | Security Assessment                                   | Status   |
+| --------------------- | ---------------------- | ----------------------------------------------------- | -------- |
+| Cipher Suite          | TLS_AES_256_GCM_SHA384 | Strong AES-256 GCM encryption (modern TLS 1.3 cipher) | Secure |
+| Certificate Authority | Let’s Encrypt          | Trusted public CA                                     | Secure |
+| HTTPS Enabled         | Port 443 active        | Encrypted communication in place                      | Secure |
+
+The TLS configuration uses modern encryption standards and a trusted certificate authority. No immediate cryptographic weaknesses were identified.
+                 Vulnerability & Misconfiguration Analysis
+| # | Issue                          | Description                                | Risk Impact                                                    | Severity | Remediation                                                           |
+| - | ------------------------------ | ------------------------------------------ | -------------------------------------------------------------- | -------- | --------------------------------------------------------------------- |
+| 1 | Server Version Disclosure      | Server header reveals `openresty/1.27.1.2` | Enables attackers to search for known CVEs and tailor exploits | Medium   | Disable server tokens and hide version banners (`server_tokens off;`) |
+| 2 | Private/Internal IP Disclosure | IP address exposed in server header        | Reveals backend architecture; assists reconnaissance           | Medium   | Sanitize HTTP response headers before sending to clients              |
+| 3 | Missing X-Frame-Options        | Anti-clickjacking header not set           | Website can be embedded in malicious iframe                    | Medium   | Add `X-Frame-Options: DENY` or `SAMEORIGIN`                           |
+| 4 | Missing HSTS Header            | Strict-Transport-Security not defined      | Vulnerable to SSL stripping and downgrade attacks              | High     | Add `Strict-Transport-Security: max-age=31536000; includeSubDomains`  |
+| 5 | Missing X-Content-Type-Options | MIME sniffing protection absent            | Browser may execute malicious content incorrectly              | Medium   | Add `X-Content-Type-Options: nosniff`                                 |
+                 Risk Classification Summary
+| Category                   | Overall Assessment        |
+| -------------------------- | ------------------------- |
+| Encryption Strength        | Strong                    |
+| Certificate Trust          | Valid & Trusted           |
+| Information Disclosure     | Present                   |
+| Header Hardening           | Incomplete                |
+| Transport Layer Protection | Needs HSTS Implementation |
+
+This assessment demonstrates the ability to:
+Analyze SSL/TLS cryptographic configurations
+Identify HTTP security header misconfigurations
+Classify vulnerabilities based on impact severity
+Correlate version disclosure risks with potential CVEs
+Recommend industry-standard remediation strategie
+                                        

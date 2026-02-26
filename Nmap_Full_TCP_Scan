@@ -1,0 +1,86 @@
+1.Basic command syntax 
+           nmap[scan options] {target-specifications} {output-options}
+           
+2.target specifications 
+  
+Nmap supports multiple target formats for flexible reconnaissance operations.
+
+Method	Example	Description
+Single IP	nmap 192.168.1.10	Scan one host
+Multiple IPs	nmap 192.168.1.10 192.168.1.20	Scan multiple specific hosts
+IP Range	nmap 192.168.1.10-50	Scan sequential IPs
+CIDR	nmap 192.168.1.0/24	Scan entire subnet
+From File	nmap -iL targets.txt	Load targets from file
+Random Hosts	nmap -iR 10	Scan 10 random internet hosts
+Exclude Hosts	nmap 192.168.1.0/24 --exclude 192.168.1.5	Skip specific host
+
+
+
+3 common scan techniques
+    -Ss = nmap -Ss 192.168.1.1  = TCP SYN (Stealth) scan
+    -sT = nmap -sT 192.168.1.1  = TCP connect scan -used when you lack raw socket priveleges
+    -sU = nmap -sU 192.169.1.1  = UDP scan
+    -sA = nmap -sA 192.168.1.1  = TCP ACK scan-useful for firewall rules
+    -sL = nmap -sL 192.168.1.1  = list targets only
+    
+
+*Host discovery flags 
+| Flag  | Example                   | Purpose                           |
+| ----- | ------------------------- | --------------------------------- |
+| `-sn` | `nmap -sn 192.168.1.0/24` | Ping sweep only                   |
+| `-Pn` | `nmap -Pn 192.168.1.1`    | Skip discovery, assume host is up |
+| `-PS` | `nmap -PS22,80 target`    | TCP SYN discovery                 |
+| `-PA` | `nmap -PA80 target`       | TCP ACK discovery                 |
+| `-PU` | `nmap -PU53 target`       | UDP probe                         |
+| `-PR` | `nmap -PR 192.168.1.0/24` | ARP discovery (LAN only)          |
+| `-n`  | `nmap -n 1.2.3.4`         | Disable DNS resolution            |
+
+
+
+
+Port Specification Options
+| Flag               | Example                  | Description               |
+| ------------------ | ------------------------ | ------------------------- |
+| `-p 22`            | `nmap -p 22 target`      | Single port               |
+| `-p 1-1000`        | `nmap -p 1-1000 target`  | Port range                |
+| `-p U:53,T:80`     | Mixed protocol scan      |                           |
+| `-F`               | `nmap -F target`         | Fast scan (top 100 ports) |
+| `--top-ports 2000` | Scan most common N ports |                           |
+| `-p-`              | `nmap -p- target`        | Scan all 65,535 ports     |
+
+
+
+Service & version detection* (Section 6):
+    - *`-sV`*: `nmap -sV target` – probes open ports to detect *service and version*.
+    - *`-sV --version-intensity <0-9>`*: `nmap -sV --version-intensity 8 target` – controls the *aggressiveness* of version probes (0 = light, 9 = full).
+    - *`-sV --version-light`*: `nmap -sV --version-light target` – performs *faster, less thorough* version detection.
+    - *`-A`*: `nmap -A target` – *aggressive* scan: OS detection + version detection + scripts + traceroute.
+
+*OS detection* (Section 7):
+    - *`-O`*: `nmap -O 192.168.1.1` – performs *OS fingerprinting* via TCP/IP stack analysis.
+    - *`-O --osscan-guess`*: `nmap -O --osscan-guess target` – makes the OS guess *more aggressive* when the match is inexact.
+    - *`-O --max-os-tries <n>`*: `nmap -O --max-os-tries 1 target` – *limits* the number of OS detection attempts.
+    - *`-A`*: `nmap -A target` – also runs *OS detection* along with other checks (version, scripts, traceroute).
+
+aiming & performance (beginner presets):
+    - -T0 (Paranoid): nmap -T0 target – extremely slow, used for IDS evasion.
+    - -T1 (Sneaky): nmap -T1 target – very slow, IDS evasion.
+    - -T2 (Polite): nmap -T2 target – uses less bandwidth, system-friendly.
+    - -T3 (Normal): nmap -T3 target – default timing.
+    - -T4 (Aggressive): nmap -T4 target – faster, good on reliable LANs.
+    - -T5 (Insane): nmap -T5 target – very fast, only for very fast networks.
+NSE (Nmap Scripting Engine) basics:
+    - -sC or --script=default: nmap -sC target – runs default-safe scripts (good for beginners).
+    - --script <name>: nmap --script=banner target – runs a specific script.
+    - _--script "http"_*: nmap --script "http*" target – runs scripts matching a wildcard.
+    - --script-args: nmap --script snmp-sysdescr --script-args snmpcommunity=public target – passes arguments to scripts.
+    - --script "not intrusive": nmap --script "not intrusive" target – runs defaults but removes known intrusive scripts.
+    
+    
+Output options :
+    - -oN: normal human‑readable output to a file (nmap -oN scan.txt target).
+    - -oX: XML output (nmap -oX scan.xml target).
+    - -oG: grepable format (nmap -oG scan.gnmap target).
+    - -oA: all formats (.nmap, .xml, .gnmap) (nmap -oA myscan target).
+    
+    Demonstrated advanced proficiency in Nmap for host discovery, port scanning, service enumeration, OS fingerprinting, firewall analysis, and script-based vulnerability detection. Applied performance tuning and output management for scalable enterprise-level network assessments.
