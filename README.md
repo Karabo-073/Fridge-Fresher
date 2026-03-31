@@ -1,88 +1,73 @@
-<!-- Main SOC Analyst Portfolio README -->
+<!-- Cybersecurity Portfolio README -->
 
 <div align="center" style="font-family: Arial, sans-serif; line-height: 1.6;">
 
-<u><h1>Global SOC Analyst Portfolio – Comprehensive Cybersecurity Labs</h1></u>
+<u><h1>Web Application Penetration Testing Portfolio – DVWA Lab</h1></u>
 
 <br>
 
-This portfolio presents a global-standard collection of hands-on Security Operations Center (SOC) labs and exercises, showcasing practical expertise in threat detection, vulnerability management, network defense, incident response, and malware triage. 
-It demonstrates proficiency across multiple platforms, tools, and methodologies, emphasizing the ability to operate in enterprise-level environments and international cybersecurity frameworks. 
-The portfolio highlights skills essential for protecting organizations against evolving cyber threats while adhering to global best practices in security monitoring, risk assessment, and response.
+This portfolio presents a structured, hands-on penetration testing project conducted on a controlled DVWA (Damn Vulnerable Web Application) lab environment. 
+It demonstrates practical skills in reconnaissance, vulnerability assessment, and exploitation using industry-standard tools and methodologies. 
+The project reflects a real-world approach to identifying security weaknesses while adhering to ethical hacking principles and safe testing practices.
 
 <br><br>
 
 <u><h2>Portfolio Structure (Tree Diagram)</h2></u>
 
 <pre>
-Global_SOC_Analyst_Portfolio/
+DVWA_Penetration_Testing_Project/
 │
-├── Vulnerability_Management
-│     ├── Nmap Full TCP Scan
-│     ├── Ping Sweep & Host Discovery
-│     └── Web Vulnerability Assessment (Nikto / DVWA)
+├── Part_1_Reconnaissance
+│     ├── Manual Discovery (robots.txt, HTTP headers)
+│     ├── Technology Fingerprinting (Wappalyzer)
+│     ├── Port Scanning (Nmap)
+│     └── Directory Enumeration (ffuf, Gobuster, Dirb)
 │
-├── Linux_Log_Analysis
-│     ├── Authentication & Failed Login Analysis
-│     ├── Event Correlation & System Monitoring
-│     └── Security Alert Validation
+├── Part_2_Vulnerability_Assessment
+│     ├── Web Server Scanning (Nikto)
+│     ├── Misconfiguration Analysis
+│     └── Identification of Security Weaknesses
 │
-├── Firewall_Configuration & Network_Hardening
-│     ├── Firewall Rule Implementation (pfSense)
-│     ├── VLAN Segmentation & Access Policies
-│     └── Network Traffic Monitoring & Logging
-│
-└── Incident_Response_&_Malware_Triage
-      ├── Ransomware Simulation & Analysis
-      ├── Trojan Simulation & Analysis
-      ├── Containment & Eradication Procedures
-      └── Recovery, Documentation & Lessons Learned
+└── Part_3_Exploitation
+      ├── Exploitation of Identified Vulnerabilities
+      ├── Proof of Concept (PoC)
+      └── Impact Analysis & Documentation
 </pre>
 
 <br>
 
-<u><h2>Global Tools & Platforms</h2></u>
+<u><h2>Tools & Technologies Used</h2></u>
 
 <table border="1" cellpadding="8" cellspacing="0" align="center">
 <tr>
 <th>Category</th>
-<th>Tools / Platforms</th>
+<th>Tools</th>
 <th>Purpose</th>
 </tr>
 <tr>
-<td>Operating Systems</td>
-<td>Kali Linux, Ubuntu, Windows Server, Metasploitable</td>
-<td>Penetration testing, lab environments, cross-platform monitoring</td>
+<td>Operating System</td>
+<td>Kali Linux</td>
+<td>Penetration testing environment</td>
 </tr>
 <tr>
-<td>Network & Vulnerability Tools</td>
-<td>Nmap, Netcat, Nikto, OpenVAS</td>
-<td>Network scanning, port/service enumeration, vulnerability assessment</td>
+<td>Reconnaissance Tools</td>
+<td>Nmap, Wappalyzer, curl</td>
+<td>Port scanning, service detection, technology identification</td>
 </tr>
 <tr>
-<td>Packet Analysis</td>
-<td>Wireshark, tcpdump</td>
-<td>Traffic inspection, anomaly detection, alert verification</td>
+<td>Web Scanning</td>
+<td>Nikto</td>
+<td>Identify vulnerabilities and misconfigurations</td>
 </tr>
 <tr>
-<td>Firewall & Hardening</td>
-<td>pfSense</td>
-<td>Perimeter defense, segmentation, access control</td>
+<td>Content Discovery</td>
+<td>ffuf, Gobuster, Dirb</td>
+<td>Directory and file enumeration</td>
 </tr>
 <tr>
-<td>Log Analysis & SIEM</td>
-<td>Linux Logs, Windows Sysmon, Splunk, ELK Stack</td>
-<td>Event correlation, threat intelligence integration, monitoring</td>
-</tr>
-<tr>
-<td>Malware & Forensics</td>
-<td>Volatility, Sandbox Tools, Antivirus</td>
-<td>Memory forensics, malware triage, root cause identification</td>
-</tr>
-<tr>
-<td>Web Security Labs</td>
-<td>DVWA, Metasploitable</td>
-<td>Web application vulnerability exploitation, lab-based risk assessment</td>
+<td>Web Application</td>
+<td>DVWA</td>
+<td>Vulnerable lab environment for testing</td>
 </tr>
 </table>
 
@@ -90,81 +75,79 @@ Global_SOC_Analyst_Portfolio/
 
 <u><h2>Practical Labs – Highlights</h2></u>
 
-<div align="center"><u>Vulnerability Management & Scanning</u></div>
+<div align="center"><u>Reconnaissance & Information Gathering</u></div>
 <pre>
 Objective:
-• Identify exposed services and vulnerabilities on internal lab network.
-Commands:
-• sudo nmap -sS -sV -O -p-
-• nmap -sn
-• nikto -h http://<target>
+• Gather information about the target system and identify attack surface.
+
+Techniques:
+• Manual discovery (robots.txt, HTTP headers)
+• Technology fingerprinting (Wappalyzer)
+• Port scanning using Nmap
+• Directory brute forcing using ffuf, Gobuster, and Dirb
+
 Findings:
-• Live hosts discovered
-• TCP ports and service versions enumerated
-• Outdated web server software and misconfigurations identified
+• Open ports and running services identified
+• Web server: Apache (Debian)
+• Exposed directories: /config/, /database/, /docs/, /tests/
+• Sensitive files discovered (php.ini, robots.txt)
+• Exposed .git repository files
+
 Analysis:
-• Prioritize remediation based on exposed services
-• Reduce attack surface and document findings
+• Large attack surface identified
+• Misconfigurations and information disclosure risks present
 </pre>
 
-<div align="center"><u>Linux Log Analysis & Monitoring</u></div>
+<div align="center"><u>Vulnerability Assessment</u></div>
 <pre>
 Objective:
-• Detect failed logins and potential brute force attacks via system logs.
-Commands:
-• cat /var/log/auth.log | grep "Failed"
-• journalctl -xe | grep -i "error"
+• Identify vulnerabilities and misconfigurations within the web application.
+
+Tools:
+• Nikto web server scanner
+
 Findings:
-• Multiple failed login attempts and suspicious IPs
+• Missing security headers (CSP, HSTS, etc.)
+• Directory indexing enabled
+• Exposed configuration and database directories
+• Accessible administrative endpoints
+
 Analysis:
-• Continuous monitoring essential for SOC alerting
-• Correlate logs with threat intelligence feeds
+• Weak security configurations increase risk of exploitation
+• Sensitive data exposure possible through misconfigured directories
 </pre>
 
-<div align="center"><u>Firewall Configuration & Network Hardening</u></div>
+<div align="center"><u>Exploitation & Impact</u></div>
 <pre>
 Objective:
-• Strengthen network perimeter and enforce access controls.
-Commands:
-• pfSense GUI / CLI for firewall and VLAN setup
-Findings:
-• Unauthorized traffic blocked
-• Segmentation reduces lateral movement
-Analysis:
-• Demonstrates professional SOC-level network defense
-</pre>
+• Exploit identified vulnerabilities in a controlled environment.
 
-<div align="center"><u>Security Incident Response & Malware Triage</u></div>
-<pre>
-Objective:
-• Simulate real-world malware incidents, perform containment, eradication, and recovery.
-Commands:
-• Analyze logs (Linux/Windows/SIEM)
-• Sandbox malware analysis and Volatility memory inspection
-Labs Included:
-• Ransomware Simulation & Analysis – controlled lab execution of ransomware to study file encryption behavior, C2 attempts, and recovery processes.
-• Trojan Simulation & Analysis – lab simulation of trojan infection to analyze persistence, outbound connections, and memory artifacts.
-• Containment & Eradication Procedures – safe isolation and remediation strategies.
-• Recovery, Documentation & Lessons Learned – structured SOC response and operational continuity.
+Activities:
+• Exploitation of exposed directories and files
+• Analysis of .git repository exposure
+• Validation of vulnerabilities through proof-of-concept testing
+
 Findings:
-• Malware behavior identified, contained, and remediated
-• Recovery completed and lessons documented
+• Sensitive information disclosure confirmed
+• Potential access to internal application structure
+
 Analysis:
-• Structured incident response ensures operational continuity
-• Enhances SOC readiness and process documentation
+• Demonstrates real-world attack scenarios
+• Highlights importance of secure configurations and access controls
 </pre>
 
 <br>
 
 <u><h2>Professional Summary</h2></u>
 
-This portfolio represents **global cybersecurity readiness** for enterprise SOC roles, demonstrating:
+This project demonstrates practical cybersecurity skills including:
 
-• Vulnerability management and exposure analysis  
-• Linux/Windows log monitoring and alerting  
-• Network scanning, firewall hardening, and segmentation  
-• Malware triage, incident response, and recovery (Ransomware & Trojan simulations)  
-• Documentation and reporting following international SOC standards  
+• Web application reconnaissance and attack surface mapping  
+• Port scanning and service enumeration  
+• Automated directory and file discovery  
+• Vulnerability identification and analysis  
+• Ethical exploitation in a controlled lab environment  
+• Structured documentation following penetration testing methodology  
 
 <br><br>
 
